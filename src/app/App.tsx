@@ -1,13 +1,21 @@
-import 'antd/dist/reset.css';
-import { Button } from 'antd';
-import './App.css';
+import { useState } from 'react';
+import RemoteTodoTableWrapper from '../features/RemoteTodoTable';
+import { AppContainer, StyledButton } from './App.styles';
 
 function App() {
+  const [showTable, setShowTable] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowTable(!showTable);
+  };
+
   return (
-    <div className="App">
-      <h1>Hello Ant Design</h1>
-      <Button type="default">Primary Button</Button>
-    </div>
+    <AppContainer>
+      <StyledButton onClick={handleButtonClick}>
+        {showTable ? 'Скрыть таблицу Todo' : 'Показать таблицу Todo'}
+      </StyledButton>
+      {showTable && <RemoteTodoTableWrapper />}
+    </AppContainer>
   );
 }
 
