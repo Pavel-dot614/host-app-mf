@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from 'react';
+
 import styled from 'styled-components';
 
 export interface StyledButtonProps {
@@ -26,7 +27,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   }
 `;
 
-const Button: React.FC<StyledButtonProps> = ({ children, ...props }) => {
+const Button: FC<StyledButtonProps> = ({ children, ...props }) => {
   return <StyledButton {...props}>{children}</StyledButton>;
 };
 

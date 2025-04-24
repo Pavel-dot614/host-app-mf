@@ -1,9 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test('shows the todo table when the button is clicked', async ({ page }) => {
-  await page.goto('http://localhost:3000');
+const HOME_URL = 'http://localhost:3000';
+const SHOW_TODO = 'Показать таблицу Todo';
+const HIDDEN_TODO = 'Скрыть таблицу Todo';
 
-  await page.getByRole('button', { name: 'Показать таблицу Todo' }).click();
+test('shows the todo table when the button is clicked', async ({ page }) => {
+  await page.goto(HOME_URL);
+
+  await page.getByRole('button', { name: SHOW_TODO }).click();
 
   await expect(
     page.getByRole('columnheader', { name: 'userId' }),
@@ -13,13 +17,13 @@ test('shows the todo table when the button is clicked', async ({ page }) => {
 test('hides the todo table when the button is clicked again', async ({
   page,
 }) => {
-  await page.goto('http://localhost:3000');
-  await page.getByRole('button', { name: 'Показать таблицу Todo' }).click();
+  await page.goto(HOME_URL);
+  await page.getByRole('button', { name: SHOW_TODO }).click();
   await expect(
     page.getByRole('columnheader', { name: 'userId' }),
   ).toBeVisible();
 
-  await page.getByRole('button', { name: 'Скрыть таблицу Todo' }).click();
+  await page.getByRole('button', { name: HIDDEN_TODO }).click();
 
   await expect(
     page.getByRole('columnheader', { name: 'userId' }),

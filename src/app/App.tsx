@@ -1,12 +1,14 @@
 import { useState } from 'react';
+
 import RemoteTodoTableWrapper from '../features/RemoteTodoTable';
+
 import { AppContainer, StyledButton } from './App.styles';
 
 function App() {
   const [showTable, setShowTable] = useState(false);
 
   const handleButtonClick = () => {
-    setShowTable(!showTable);
+    setShowTable(prevState => !prevState);
   };
 
   return (

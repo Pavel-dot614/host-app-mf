@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 
 const RemoteTodoTable = lazy(() => import('remote_app/TodoTable'));
 

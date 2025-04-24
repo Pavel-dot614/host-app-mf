@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+
 import Button, { StyledButtonProps } from './StyledButton';
 
 const meta: Meta<StyledButtonProps> = {
